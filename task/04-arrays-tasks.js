@@ -102,7 +102,7 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-   return arr.filter((item) => item !== false && item !== null && item !== 0 && item !== '' && item !== undefined && item === item);
+   return arr.filter((item) => item && item === item);
 }
 
 /**
@@ -363,7 +363,7 @@ function getItemsSum(arr) {
  */
 function getFalsyValuesCount(arr) {
    return arr.reduce((count, item) => {
-    if (item === false || item === null || item === 0 || item === '' || item === undefined || item !== item) {
+    if (!item || item !== item) {
       return count + 1;
     }
     return count;
